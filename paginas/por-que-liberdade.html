@@ -99,15 +99,42 @@
             <a href="4-pilares.html" class="btn right">Próximo Capítulo ➡</a>
         </div>
 
-        <div id="compartilhar-comentarios"></div>
+        <!-- Compartilhamento -->
+        <div class="share-section">
+            <h3>Compartilhe</h3>
+            <div class="share-buttons">
+                <a href="https://api.whatsapp.com/send?text=Por%20que%20Liberdade%20Financeira%20-%20https://livresou.com.br/paginas/por-que-liberdade.html"
+                    target="_blank">WhatsApp</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://livresou.com.br/paginas/por-que-liberdade.html"
+                    target="_blank">Facebook</a>
+                <a href="https://twitter.com/intent/tweet?url=https://livresou.com.br/paginas/por-que-liberdade.html&text=Por%20que%20Liberdade%20Financeira"
+                    target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://livresou.com.br/paginas/por-que-liberdade.html"
+                    target="_blank">LinkedIn</a>
+            </div>
+        </div>
 
+        <!-- Disqus -->
+        <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
+        <div id="disqus_thread"></div>
         <script>
-            fetch("util/compartilhar-comentarios.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("compartilhar-comentarios").innerHTML = data;
-                });
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://livresou-com-br.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
         </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
     </main>
 </body>
