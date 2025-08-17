@@ -198,3 +198,28 @@ p {
 .accordion-item.active .accordion-body {
   display: block;
 }
+
+/* Blocos de conteúdo em páginas explicativas */
+.content-block {
+  text-align: left;
+  max-width: 750px;
+  margin: 2rem auto;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: var(--fg);
+}
+
+.content-block p {
+  margin-bottom: 1.5rem;
+}
+
+/* Placeholder para imagens */
+.img-placeholder {
+  background: #1e293b;
+  border-radius: 8px;
+  text-align: center;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+  font-style: italic;
+}
