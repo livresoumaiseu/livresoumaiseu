@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Menu - Livre Sou Mais Eu</title>
-  <meta name="description"
-    content="Escolha entre princípios básicos, renda fixa, ações, fundos imobiliários, ETFs, tesouro direto e notícias sobre investimentos.">
+  <meta name="description" content="Escolha entre princípios básicos, renda fixa, ações, fundos imobiliários, ETFs, tesouro direto e notícias sobre investimentos.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
+<footer class="site-footer">
+  <p>Coptyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion | 
+    <a href="quem-somos.html">Quem Somos</a>
+  </p>
+</footer>
+
+<script>
+  // Atualiza o ano automaticamente
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 <body>
   <main class="top-page">
@@ -20,7 +29,7 @@
       <div class="accordion-item">
         <button class="accordion-header">Trilhas do conhecimento</button>
         <div class="accordion-body menu-grid">
-          <a href="por-que-liberdade.html#disqus_thread" class="card">
+          <a href="por-que-liberdade.html" class="card">
             <h2>Por que Liberdade Financeira?</h2>
             <p>Entenda a importância de conquistar sua independência financeira.</p>
           </a>
@@ -92,8 +101,5 @@
       });
     });
   </script>
-
-  <script id="dsq-count-scr" src="//livresou-com-br.disqus.com/count.js" async></script>
 </body>
-
 </html>
