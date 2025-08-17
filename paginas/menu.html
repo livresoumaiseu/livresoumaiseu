@@ -4,38 +4,82 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Menu - Livre Sou Mais Eu</title>
-  <meta name="description" content="Escolha entre renda fixa, ações, fundos imobiliários, ETFs, tesouro direto e notícias sobre investimentos.">
+  <meta name="description" content="Escolha entre princípios básicos, renda fixa, ações, fundos imobiliários, ETFs, tesouro direto e notícias sobre investimentos.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <main class="top-page">
     <h1>Escolha um Caminho</h1>
-    <section class="menu-grid">
-      <a href="renda-fixa.html" class="card">
-        <h2>Renda Fixa</h2>
-        <p>Segurança e estabilidade nos seus investimentos.</p>
-      </a>
-      <a href="acoes.html" class="card">
-        <h2>Ações</h2>
-        <p>Invista em empresas e participe de seus resultados.</p>
-      </a>
-      <a href="fundos.html" class="card">
-        <h2>Fundos Imobiliários</h2>
-        <p>Receba rendimentos com imóveis sem comprá-los diretamente.</p>
-      </a>
-      <a href="etf.html" class="card">
-        <h2>ETF Offshore</h2>
-        <p>Exposição internacional com ETFs globais diversificados.</p>
-      </a>
-      <a href="tesouro.html" class="card">
-        <h2>Tesouro Direto</h2>
-        <p>Segurança do governo com várias opções de títulos.</p>
-      </a>
-      <a href="noticias.html" class="card">
-        <h2>Notícias</h2>
-        <p>Acompanhe as últimas do mercado financeiro.</p>
-      </a>
-    </section>
+
+    <div class="accordion">
+
+      <!-- Princípios básicos -->
+      <div class="accordion-item">
+        <button class="accordion-header">Princípios básicos</button>
+        <div class="accordion-body menu-grid">
+          <a href="principios/por-que-liberdade.html" class="card">
+            <h2>Por que Liberdade Financeira?</h2>
+            <p>Entenda a importância de conquistar sua independência financeira.</p>
+          </a>
+          <a href="principios/4-pilares.html" class="card">
+            <h2>4 Pilares da Liberdade</h2>
+            <p>Os fundamentos que sustentam o caminho para sua liberdade.</p>
+          </a>
+          <a href="principios/mentalidade.html" class="card">
+            <h2>Mentalidade Investidora</h2>
+            <p>Adote uma mentalidade voltada para crescimento e disciplina.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Ativos -->
+      <div class="accordion-item">
+        <button class="accordion-header">Ativos</button>
+        <div class="accordion-body menu-grid">
+          <a href="renda-fixa.html" class="card">
+            <h2>Renda Fixa</h2>
+            <p>Segurança e estabilidade nos seus investimentos.</p>
+          </a>
+          <a href="acoes.html" class="card">
+            <h2>Ações</h2>
+            <p>Invista em empresas e participe dos seus resultados.</p>
+          </a>
+          <a href="fundos.html" class="card">
+            <h2>Fundos Imobiliários</h2>
+            <p>Receba rendimentos com imóveis sem comprá-los diretamente.</p>
+          </a>
+          <a href="etf.html" class="card">
+            <h2>ETF Offshore</h2>
+            <p>Exposição internacional com ETFs globais diversificados.</p>
+          </a>
+          <a href="tesouro.html" class="card">
+            <h2>Tesouro Direto</h2>
+            <p>Segurança do governo com várias opções de títulos.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Notícias -->
+      <div class="accordion-item">
+        <button class="accordion-header">Notícias</button>
+        <div class="accordion-body menu-grid">
+          <a href="noticias.html" class="card">
+            <h2>Últimas Notícias</h2>
+            <p>Acompanhe as novidades do mercado financeiro.</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
   </main>
+
+  <script>
+    // Script para abrir/fechar os tópicos
+    document.querySelectorAll(".accordion-header").forEach(header => {
+      header.addEventListener("click", () => {
+        header.parentElement.classList.toggle("active");
+      });
+    });
+  </script>
 </body>
 </html>
