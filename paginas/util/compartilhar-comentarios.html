@@ -1,0 +1,39 @@
+<!-- Compartilhamento -->
+<div class="share-section">
+    <h3>Compartilhe</h3>
+    <div class="share-buttons">
+        <a href="https://api.whatsapp.com/send?text=" target="_blank" id="share-whatsapp">WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" id="share-facebook">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url=&text=" target="_blank" id="share-twitter">Twitter</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=" target="_blank" id="share-linkedin">LinkedIn</a>
+    </div>
+</div>
+<script>
+  const pageUrl = encodeURIComponent(window.location.href);
+  const pageTitle = encodeURIComponent(document.title);
+
+  document.getElementById("share-whatsapp").href = `https://api.whatsapp.com/send?text=${pageTitle}%20-%20${pageUrl}`;
+  document.getElementById("share-facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+  document.getElementById("share-twitter").href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+  document.getElementById("share-linkedin").href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+</script>
+
+
+<!-- Disqus -->
+<p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;  // Pega a URL da página automaticamente
+        this.page.identifier = document.title; // Usa o título da página como ID
+    };
+
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://livresou-com-br.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Por favor, ative o JavaScript para visualizar <a href="https://disqus.com/?ref_noscript">os comentários
+        powered by Disqus.</a></noscript>
