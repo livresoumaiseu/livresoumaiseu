@@ -1,0 +1,160 @@
+/* style.css */
+
+:root {
+  --bg: #0f172a;
+  --fg: #e2e8f0;
+  --muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  background: radial-gradient(1200px 800px at 50% 30%, #1e293b 0%, #0b1220 60%, #070b15 100%);
+  color: var(--fg);
+  overflow-x: hidden;
+  overflow-y: auto; /* permite rolagem */
+}
+
+/* Só centraliza no index */
+body.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Conteúdo das outras páginas (top-page) */
+main.top-page {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem 4rem;
+  text-align: center;
+}
+
+main.top-page h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+main.top-page > p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* Cabeçalhos e textos padrão */
+h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin: 0 0 .75rem 0;
+  letter-spacing: .02em;
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Botão padrão */
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #1d4ed8;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #2563eb;
+}
+
+/* Menu em grade (cards profissionais) */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.card {
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: left;
+  text-decoration: none;
+  color: var(--fg);
+  transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  background: #2563eb;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.card:hover p {
+  color: #e2e8f0;
+}
+
+/* Área de postagens */
+.posts {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.post-card {
+  background: #1e293b;
+  padding: 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
+
+.post-card:hover {
+  background: #2563eb;
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+.post-card h2 {
+  margin: 0 0 .5rem;
+  font-size: 1.2rem;
+}
+
+.post-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.post-card:hover p {
+  color: #e2e8f0;
+}
