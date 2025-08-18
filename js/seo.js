@@ -1,13 +1,15 @@
+
 (function () {
-  // ===== Configurações do site =====
+  // ===== Configurações globais do site =====
   const site = {
     name: "Livre Sou",
-    url: "https://livresou.com.br",     // sem barra no final
+    url: "https://livresou.com.br",       // domínio base sem barra final
     author: "Gabriel Cossare Bragion",
-    authorUrl: "https://bragioncorp.com/", // ✅ URL do autor
-    twitter: "@GabrielBragion",
-    logo: "/imgs/logo.png",              // pode ser relativo
-    defaultImage: "/imgs/default.png"    // fallback para og/twitter
+    authorUrl: "https://bragioncorp.com/", // URL do autor
+    twitter: "@livresoumaiseu",
+    logo: "/imgs/logo.png",               // caminho do logo
+    defaultImage: "/imgs/default.png",    // fallback se a página não tiver imagem
+    fbAppId: "1299627698215476"            // <-- substitua pelo ID real do Facebook App
   };
 
   // ===== Helpers =====
@@ -72,11 +74,11 @@
   }
 
   // ===== Coleta de dados da página =====
-  const rawTitle = document.title && document.title.trim();
-  const metaDesc = $('meta[name="description"]')?.getAttribute("content")?.trim();
-  const metaDate = $('meta[name="date"]')?.getAttribute("content")?.trim();
-  const metaLastMod = $('meta[name="lastmod"]')?.getAttribute("content")?.trim();
-  const metaOgImg = $('meta[property="og:image"]')?.getAttribute("content")?.trim();
+  const rawTitle   = document.title && document.title.trim();
+  const metaDesc   = $('meta[name="description"]')?.getAttribute("content")?.trim();
+  const metaDate   = $('meta[name="date"]')?.getAttribute("content")?.trim();
+  const metaLast   = $('meta[name="lastmod"]')?.getAttribute("content")?.trim();
+  const metaOgImg  = $('meta[property="og:image"]')?.getAttribute("content")?.trim();
 
   const page = {
     title: rawTitle || site.name,
@@ -84,9 +86,10 @@
     url: window.location.href,
     image: absUrl(metaOgImg || site.defaultImage),
     datePublished: metaDate ? toISOWithTZ(metaDate) : "",
-    dateModified: metaLastMod ? toISOWithTZ(metaLastMod) : toISOWithTZ(new Date())
+    dateModified: metaLast ? toISOWithTZ(metaLast) : toISOWithTZ(new Date())
   };
 
+  const canonicalHref = normCanonical(page.url);
   const isArticle = Boolean(page.datePublished);
 
   // ===== SEO básico =====
@@ -94,14 +97,17 @@
   setMeta("author", site.author);
   if (!$('meta[name="robots"]')) setMeta("robots", "index,follow");
 
-  // ===== Open Graph =====
+  // ===== Open Graph (obrigatórios e extras) =====
+  setMeta("og:url", canonicalHref, "property");
   setMeta("og:type", isArticle ? "article" : "website", "property");
-  setMeta("og:locale", "pt_BR", "property");
-  setMeta("og:site_name", site.name, "property");
   setMeta("og:title", page.title, "property");
   setMeta("og:description", page.description, "property");
-  setMeta("og:url", page.url, "property");
   setMeta("og:image", page.image, "property");
+  setMeta("og:locale", "pt_BR", "property");
+  setMeta("og:site_name", site.name, "property");
+
+  // Facebook App ID (obrigatório para Graph API)
+  setMeta("fb:app_id", site.fbAppId, "property");
 
   if (isArticle) {
     setMeta("article:published_time", page.datePublished, "property");
@@ -117,7 +123,6 @@
   setMeta("twitter:creator", site.twitter);
 
   // ===== Canonical =====
-  const canonicalHref = normCanonical(page.url);
   setOrCreateLink("canonical", canonicalHref);
 
   // ===== JSON-LD (Schema.org) =====
@@ -131,7 +136,7 @@
       "@type": "Article",
       "mainEntityOfPage": canonicalHref,
       "headline": page.title,
-      "author": { "@type": "Person", "name": site.author, "url": site.authorUrl }, // ✅ URL incluída
+      "author": { "@type": "Person", "name": site.author, "url": site.authorUrl },
       "publisher": {
         "@type": "Organization",
         "name": site.name,
