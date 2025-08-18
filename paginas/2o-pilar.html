@@ -11,16 +11,16 @@
 </head>
 
 <footer class="site-footer">
-    <p>Copyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion |
-        <a href="quem-somos.html">Quem Somos</a> |
-        <a href="disclaimer.html">Disclaimer</a> |
-        <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
-    </p>
+  <p>Copyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion |
+    <a href="quem-somos.html">Quem Somos</a> |
+    <a href="disclaimer.html">Disclaimer</a> |
+    <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
+  </p>
 </footer>
 
 <script>
-    // Atualiza o ano automaticamente
-    document.getElementById("year").textContent = new Date().getFullYear();
+  // Atualiza o ano automaticamente
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 <body>
@@ -106,11 +106,18 @@
 
     <!-- Compartilhamento -->
     <div id="compartilhe-container"></div>
+
+    <script src="../js/sharekit.js"></script>
     <script>
       fetch("../includes/compartilhamentos.html")
         .then(r => r.text())
-        .then(html => { document.getElementById("compartilhe-container").innerHTML = html; });
+        .then(html => {
+          const box = document.getElementById("compartilhe-container");
+          box.innerHTML = html;
+          initShareKit(box); // <- agora os hrefs são ajustados e os eventos ativados
+        });
     </script>
+
 
     <!-- Disqus -->
     <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
