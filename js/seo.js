@@ -1,9 +1,10 @@
 (function () {
-  // ===== Configurações do site (ajuste conforme necessário) =====
+  // ===== Configurações do site =====
   const site = {
     name: "Livre Sou",
     url: "https://livresou.com.br",     // sem barra no final
     author: "Gabriel Cossare Bragion",
+    authorUrl: "https://bragioncorp.com/", // ✅ URL do autor
     twitter: "@GabrielBragion",
     logo: "/imgs/logo.png",              // pode ser relativo
     defaultImage: "/imgs/default.png"    // fallback para og/twitter
@@ -15,7 +16,6 @@
   function absUrl(u) {
     if (!u) return "";
     try {
-      // Garante URL absoluta a partir do baseURI da página
       return new URL(u, document.baseURI || window.location.href).href;
     } catch {
       return u;
@@ -25,7 +25,6 @@
   function normCanonical(u) {
     try {
       const url = new URL(u, document.baseURI || window.location.href);
-      // Canonical sem fragmento e sem query string
       return url.origin + url.pathname.replace(/\/+$/, "") || url.origin + "/";
     } catch {
       return u;
@@ -54,29 +53,45 @@
     link.href = href;
   }
 
+  // Converte string de data simples para ISO 8601 com timezone
+  function toISOWithTZ(input) {
+    const d = new Date(input);
+    if (isNaN(d)) return "";
+    const tz = -d.getTimezoneOffset();
+    const sign = tz >= 0 ? "+" : "-";
+    const pad = (n) => String(Math.floor(Math.abs(n))).padStart(2, "0");
+    return (
+      d.getFullYear() + "-" +
+      pad(d.getMonth() + 1) + "-" +
+      pad(d.getDate()) + "T" +
+      pad(d.getHours()) + ":" +
+      pad(d.getMinutes()) + ":" +
+      pad(d.getSeconds()) +
+      sign + pad(tz / 60) + ":" + pad(tz % 60)
+    );
+  }
+
   // ===== Coleta de dados da página =====
   const rawTitle = document.title && document.title.trim();
   const metaDesc = $('meta[name="description"]')?.getAttribute("content")?.trim();
   const metaDate = $('meta[name="date"]')?.getAttribute("content")?.trim();
+  const metaLastMod = $('meta[name="lastmod"]')?.getAttribute("content")?.trim();
   const metaOgImg = $('meta[property="og:image"]')?.getAttribute("content")?.trim();
 
   const page = {
     title: rawTitle || site.name,
     description: metaDesc || "Educação financeira para sua liberdade.",
-    // URL atual:
     url: window.location.href,
-    // Imagem preferencial: og:image > default
     image: absUrl(metaOgImg || site.defaultImage),
-    // Data (se existir vira 'article'), caso contrário tratamos como 'website/webpage'
-    date: metaDate || ""
+    datePublished: metaDate ? toISOWithTZ(metaDate) : "",
+    dateModified: metaLastMod ? toISOWithTZ(metaLastMod) : toISOWithTZ(new Date())
   };
 
-  const isArticle = Boolean(page.date);
+  const isArticle = Boolean(page.datePublished);
 
   // ===== SEO básico =====
   setMeta("description", page.description);
   setMeta("author", site.author);
-  // opcional: robots default
   if (!$('meta[name="robots"]')) setMeta("robots", "index,follow");
 
   // ===== Open Graph =====
@@ -88,15 +103,9 @@
   setMeta("og:url", page.url, "property");
   setMeta("og:image", page.image, "property");
 
-  // Se quiser (opcional): largura/altura da imagem
-  // setMeta("og:image:width", "1200", "property");
-  // setMeta("og:image:height", "630", "property");
-
   if (isArticle) {
-    // Se houver uma meta de última modificação, usamos; senão, a published
-    const lastMod = $('meta[name="lastmod"]')?.getAttribute("content")?.trim();
-    setMeta("article:published_time", page.date, "property");
-    if (lastMod) setMeta("article:modified_time", lastMod, "property");
+    setMeta("article:published_time", page.datePublished, "property");
+    setMeta("article:modified_time", page.dateModified, "property");
   }
 
   // ===== Twitter Cards =====
@@ -112,7 +121,6 @@
   setOrCreateLink("canonical", canonicalHref);
 
   // ===== JSON-LD (Schema.org) =====
-  // Remove antigo se existir para evitar duplicação
   const oldLd = document.getElementById("seo-jsonld");
   if (oldLd) oldLd.remove();
 
@@ -123,13 +131,14 @@
       "@type": "Article",
       "mainEntityOfPage": canonicalHref,
       "headline": page.title,
-      "author": { "@type": "Person", "name": site.author },
+      "author": { "@type": "Person", "name": site.author, "url": site.authorUrl }, // ✅ URL incluída
       "publisher": {
         "@type": "Organization",
         "name": site.name,
         "logo": { "@type": "ImageObject", "url": absUrl(site.logo) }
       },
-      "datePublished": page.date,
+      "datePublished": page.datePublished,
+      "dateModified": page.dateModified,
       "description": page.description,
       "image": page.image
     };
@@ -146,6 +155,6 @@
   const script = document.createElement("script");
   script.type = "application/ld+json";
   script.id = "seo-jsonld";
-  script.textContent = JSON.stringify(ld);
+  script.textContent = JSON.stringify(ld, null, 2);
   document.head.appendChild(script);
 })();
