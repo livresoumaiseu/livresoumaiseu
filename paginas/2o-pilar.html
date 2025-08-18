@@ -107,37 +107,27 @@
     <!-- Compartilhamento -->
     <div id="compartilhe-container"></div>
 
-    <script src="../js/sharekit.js"></script>
+    <script src="/js/sharekit.js"></script>
     <script>
-      fetch("../includes/compartilhamentos.html")
+      fetch("/includes/compartilhamentos.html")
         .then(r => r.text())
         .then(html => {
           const box = document.getElementById("compartilhe-container");
           box.innerHTML = html;
-          initShareKit(box); // <- agora os hrefs são ajustados e os eventos ativados
+          initShareKit(box); // chamada direta
         });
     </script>
 
-
     <!-- Disqus -->
     <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
-    <div id="disqus_thread"></div>
-    <script>
-      var disqus_config = function () {
-        this.page.url = window.location.href;
-        this.page.identifier = "passivos";
-      };
+    <div id="comentarios-container"></div>
 
-      (function () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://livresou-com-br.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
+    <script src="/js/disqus.js"></script>
+    <script>
+      // Aqui você chama a função e passa o ID do container e o identificador único da página
+      initDisqus("comentarios-container", "passivos");
     </script>
-    <noscript>Por favor, ative o JavaScript para visualizar
-      <a href="https://disqus.com/?ref_noscript">os comentários powered by Disqus.</a>
-    </noscript>
+
   </main>
 </body>
 

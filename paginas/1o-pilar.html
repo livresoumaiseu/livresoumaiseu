@@ -11,16 +11,16 @@
 </head>
 
 <footer class="site-footer">
-    <p>Copyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion |
-        <a href="quem-somos.html">Quem Somos</a> |
-        <a href="disclaimer.html">Disclaimer</a> |
-        <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
-    </p>
+  <p>Copyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion |
+    <a href="quem-somos.html">Quem Somos</a> |
+    <a href="disclaimer.html">Disclaimer</a> |
+    <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
+  </p>
 </footer>
 
 <script>
-    // Atualiza o ano automaticamente
-    document.getElementById("year").textContent = new Date().getFullYear();
+  // Atualiza o ano automaticamente
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 <body>
@@ -157,23 +157,14 @@
 
     <!-- Disqus -->
     <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
-    <div id="disqus_thread"></div>
-    <script>
-      var disqus_config = function () {
-        this.page.url = window.location.href;
-        this.page.identifier = "ativos";
-      };
+    <div id="comentarios-container"></div>
 
-      (function () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://livresou-com-br.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
+    <script src="/js/disqus.js"></script>
+    <script>
+      // Aqui você chama a função e passa o ID do container e o identificador único da página
+      initDisqus("comentarios-container", "passivos");
     </script>
-    <noscript>Por favor, ative o JavaScript para visualizar
-      <a href="https://disqus.com/?ref_noscript">os comentários powered by Disqus.</a>
-    </noscript>
+
   </main>
 </body>
 
