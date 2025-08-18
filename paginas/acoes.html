@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ações - Livre Sou Mais Eu</title>
-  <meta name="description" content="Invista em ações e participe dos resultados das empresas. Artigos, dicas e análises sobre o mercado de ações.">
+  <meta name="description"
+    content="Invista em ações e participe dos resultados das empresas. Artigos, dicas e análises sobre o mercado de ações.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <footer class="site-footer">
-  <p>Copyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion | 
-    <a href="quem-somos.html">Quem Somos</a>
+  <p>Copyright © <span id="year"></span> - LivreSou - Gabriel Cossare Bragion |
+    <a href="quem-somos.html">Quem Somos</a> |
+    <a href="disclaimer.html">Disclaimer</a> |
+    <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
   </p>
 </footer>
 
@@ -22,8 +26,9 @@
 <body>
   <main class="top-page">
     <h1>Ações</h1>
-    <p>Invista em empresas e participe dos seus resultados. Aqui você encontra artigos, dicas e análises sobre o mercado de ações.</p>
-    
+    <p>Invista em empresas e participe dos seus resultados. Aqui você encontra artigos, dicas e análises sobre o mercado
+      de ações.</p>
+
     <section class="posts">
       <a href="../posts/acoes/acoes-post-1.html" class="post-card">
         <h2>Como começar a investir em ações</h2>
@@ -31,7 +36,37 @@
       </a>
     </section>
 
-    <a href="menu.html" class="btn">Voltar ao Menu</a>
+    <!-- Navegação -->
+    <div class="nav-buttons">
+      <a href="renda-fixa.html" class="btn left">⬅ Capítulo Anterior</a>
+      <a href="fundos.html" class="btn right">Próximo Capítulo ➡</a>
+    </div>
+
+    <!-- Compartilhamento -->
+    <div id="compartilhe-container"></div>
+
+    <script src="/js/sharekit.js"></script>
+    <script>
+      fetch("/includes/compartilhamentos.html")
+        .then(r => r.text())
+        .then(html => {
+          const box = document.getElementById("compartilhe-container");
+          box.innerHTML = html;
+          initShareKit(box); // chamada direta
+        });
+    </script>
+
+    <!-- Disqus -->
+    <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
+    <div id="comentarios-container"></div>
+
+    <script src="/js/disqus.js"></script>
+    <script>
+      // Aqui você chama a função e passa o ID do container e o identificador único da página
+      initDisqus("comentarios-container", "passivos");
+    </script>
+
   </main>
 </body>
+
 </html>

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Renda Fixa - Livre Sou Mais Eu</title>
-  <meta name="description" content="Conheça os principais investimentos de renda fixa como CDB, LCI, LCA e debêntures. Segurança e previsibilidade.">
+  <meta name="description"
+    content="Conheça os principais investimentos de renda fixa como CDB, LCI, LCA e debêntures. Segurança e previsibilidade.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <footer class="site-footer">
-  <p>Copyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion | 
-    <a href="quem-somos.html">Quem Somos</a>
+  <p>Copyright © <span id="year"></span> - LivreSou - Gabriel Cossare Bragion |
+    <a href="quem-somos.html">Quem Somos</a> |
+    <a href="disclaimer.html">Disclaimer</a> |
+    <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
   </p>
 </footer>
 
@@ -22,8 +26,9 @@
 <body>
   <main class="top-page">
     <h1>Renda Fixa</h1>
-    <p>Segurança e previsibilidade com produtos como CDB, LCI/LCA, LC, debêntures e muito mais. Aqui você encontra guias e análises de renda fixa.</p>
-    
+    <p>Segurança e previsibilidade com produtos como CDB, LCI/LCA, LC, debêntures e muito mais. Aqui você encontra guias
+      e análises de renda fixa.</p>
+
     <section class="posts">
       <a href="posts/renda-fixa/renda-fixa-post-1.html" class="post-card">
         <h2>Primeiros passos na Renda Fixa</h2>
@@ -31,7 +36,37 @@
       </a>
     </section>
 
-    <a href="menu.html" class="btn">Voltar ao Menu</a>
+    <!-- Navegação -->
+    <div class="nav-buttons">
+      <a href="menu.html" class="btn left">⬅ Voltar ao Menu</a>
+      <a href="acoes.html" class="btn right">Próximo Capítulo ➡</a>
+    </div>
+
+    <!-- Compartilhamento -->
+    <div id="compartilhe-container"></div>
+
+    <script src="/js/sharekit.js"></script>
+    <script>
+      fetch("/includes/compartilhamentos.html")
+        .then(r => r.text())
+        .then(html => {
+          const box = document.getElementById("compartilhe-container");
+          box.innerHTML = html;
+          initShareKit(box); // chamada direta
+        });
+    </script>
+
+    <!-- Disqus -->
+    <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
+    <div id="comentarios-container"></div>
+
+    <script src="/js/disqus.js"></script>
+    <script>
+      // Aqui você chama a função e passa o ID do container e o identificador único da página
+      initDisqus("comentarios-container", "passivos");
+    </script>
+
   </main>
 </body>
+
 </html>

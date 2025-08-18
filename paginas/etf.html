@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ETF Offshore - Livre Sou Mais Eu</title>
-  <meta name="description" content="Aprenda a investir em ETFs offshore e diversificar sua carteira com exposição internacional.">
+  <meta name="description"
+    content="Aprenda a investir em ETFs offshore e diversificar sua carteira com exposição internacional.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <footer class="site-footer">
-  <p>Copyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion | 
-    <a href="quem-somos.html">Quem Somos</a>
+  <p>Copyright © <span id="year"></span> - LivreSou - Gabriel Cossare Bragion |
+    <a href="quem-somos.html">Quem Somos</a> |
+    <a href="disclaimer.html">Disclaimer</a> |
+    <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
   </p>
 </footer>
 
@@ -23,7 +27,7 @@
   <main class="top-page">
     <h1>ETF Offshore</h1>
     <p>Tenha exposição internacional através de ETFs que acompanham índices globais como S&P 500 e Nasdaq.</p>
-    
+
     <section class="posts">
       <a href="posts/etf/etf-post-1.html" class="post-card">
         <h2>Como investir em ETFs Offshore</h2>
@@ -31,7 +35,37 @@
       </a>
     </section>
 
-    <a href="menu.html" class="btn">Voltar ao Menu</a>
+    <!-- Navegação -->
+    <div class="nav-buttons">
+      <a href="fundos.html" class="btn left">⬅ Capítulo Anterior</a>
+      <a href="tesouro.html" class="btn right">Próximo Capítulo ➡</a>
+    </div>
+
+    <!-- Compartilhamento -->
+    <div id="compartilhe-container"></div>
+
+    <script src="/js/sharekit.js"></script>
+    <script>
+      fetch("/includes/compartilhamentos.html")
+        .then(r => r.text())
+        .then(html => {
+          const box = document.getElementById("compartilhe-container");
+          box.innerHTML = html;
+          initShareKit(box); // chamada direta
+        });
+    </script>
+
+    <!-- Disqus -->
+    <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
+    <div id="comentarios-container"></div>
+
+    <script src="/js/disqus.js"></script>
+    <script>
+      // Aqui você chama a função e passa o ID do container e o identificador único da página
+      initDisqus("comentarios-container", "passivos");
+    </script>
+
   </main>
 </body>
+
 </html>

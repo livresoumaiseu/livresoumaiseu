@@ -1,20 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Post - Como começar a investir em ações</title>
   <link rel="stylesheet" href="../../css/style.css">
 </head>
+
+<footer class="site-footer">
+  <p>Copyright © <span id="year"></span> - LivreSou - Gabriel Cossare Bragion |
+    <a href="quem-somos.html">Quem Somos</a> |
+    <a href="disclaimer.html">Disclaimer</a> |
+    <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
+  </p>
+</footer>
+
+<script>
+  // Atualiza o ano automaticamente
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 <body>
   <main class="top-page">
-    <h1>Como começar a investir em ações</h1>
-    <p>Publicado em 17 de agosto de 2025</p>
-    <article>
-      <p>Investir em ações é uma das formas mais populares de participar do crescimento das empresas. Com uma conta em corretora, você pode comprar papéis de companhias listadas na B3 e acompanhar seus rendimentos.</p>
-      <p>O ideal é sempre estudar antes de investir, diversificar e nunca aplicar recursos que você pode precisar no curto prazo.</p>
-    </article>
-    <a href="../../paginas/acoes.html" class="btn">← Voltar para Ações</a>
+    <section>
+      <h1>Como começar a investir em ações</h1>
+      <p>Publicado em 17 de agosto de 2025</p>
+      <article>
+        <p>Investir em ações é uma das formas mais populares de participar do crescimento das empresas. Com uma conta em
+          corretora, você pode comprar papéis de companhias listadas na B3 e acompanhar seus rendimentos.</p>
+        <p>O ideal é sempre estudar antes de investir, diversificar e nunca aplicar recursos que você pode precisar no
+          curto prazo.</p>
+      </article>
+      <a href="../../paginas/acoes.html" class="btn">← Voltar para Ações</a>
+    </section>
+
+    <!-- Compartilhamento -->
+    <div id="compartilhe-container"></div>
+
+    <script src="/js/sharekit.js"></script>
+    <script>
+      fetch("/includes/compartilhamentos.html")
+        .then(r => r.text())
+        .then(html => {
+          const box = document.getElementById("compartilhe-container");
+          box.innerHTML = html;
+          initShareKit(box); // chamada direta
+        });
+    </script>
+
+    <!-- Disqus -->
+    <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
+    <div id="comentarios-container"></div>
+
+    <script src="/js/disqus.js"></script>
+    <script>
+      // Aqui você chama a função e passa o ID do container e o identificador único da página
+      initDisqus("comentarios-container", "passivos");
+    </script>
+
   </main>
 </body>
+
 </html>
