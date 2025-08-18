@@ -1,43 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Página inicial -->
   <url>
     <loc>https://livresou.com.br/index.html</loc>
+    <lastmod>2025-08-18</lastmod>
     <priority>1.0</priority>
   </url>
 
+  <!-- Menu -->
   <url>
     <loc>https://livresou.com.br/paginas/menu.html</loc>
+    <lastmod>2025-08-17</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Educação Financeira - Pilares -->
+
+  <url>
+    <loc>https://livresou.com.br/paginas/por-que-liberdade.html</loc>
+    <lastmod>2025-08-18</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
+    <loc>https://livresou.com.br/paginas/4-pilares.html</loc>
+    <lastmod>2025-08-18</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://livresou.com.br/paginas/1o-pilar.html</loc>
+    <lastmod>2025-08-18</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://livresou.com.br/paginas/2o-pilar.html</loc>
+    <lastmod>2025-08-18</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Investimentos -->
+  <url>
     <loc>https://livresou.com.br/paginas/acoes.html</loc>
+    <lastmod>2025-08-17</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://livresou.com.br/paginas/fundos.html</loc>
+    <lastmod>2025-08-17</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://livresou.com.br/paginas/etf.html</loc>
+    <lastmod>2025-08-17</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://livresou.com.br/paginas/tesouro.html</loc>
+    <lastmod>2025-08-17</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://livresou.com.br/paginas/renda-fixa.html</loc>
+    <lastmod>2025-08-17</lastmod>
     <priority>0.8</priority>
   </url>
 
+  <!-- Notícias -->
   <url>
     <loc>https://livresou.com.br/paginas/noticias.html</loc>
+    <lastmod>2025-08-17</lastmod>
     <priority>0.7</priority>
   </url>
 
