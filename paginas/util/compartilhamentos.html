@@ -1,0 +1,69 @@
+<div class="share-section">
+  <h3>Compartilhe</h3>
+  <div class="share-buttons">
+    <a href="#" id="share-copy" class="btn-copy">📋 Copiar Link</a>
+    <a href="#" id="share-email" class="btn-email">✉️ E-mail</a>
+    <a href="#" target="_blank" id="share-whatsapp" class="btn-whatsapp">WhatsApp</a>
+    <a href="#" target="_blank" id="share-facebook" class="btn-facebook">Facebook</a>
+    <a href="#" target="_blank" id="share-twitter" class="btn-twitter">Twitter</a>
+    <a href="#" target="_blank" id="share-linkedin" class="btn-linkedin">LinkedIn</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  const pageUrl = encodeURIComponent(window.location.href);
+  const pageTitle = encodeURIComponent(document.title);
+
+  // Email
+  document.getElementById("share-email").href =
+    `mailto:?subject=${pageTitle}&body=Veja%20este%20conteúdo:%20${pageUrl}`;
+
+  // WhatsApp
+  document.getElementById("share-whatsapp").href =
+    `https://api.whatsapp.com/send?text=${pageTitle}%20-%20${pageUrl}`;
+
+  // Facebook
+  document.getElementById("share-facebook").href =
+    `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+
+  // Twitter
+  document.getElementById("share-twitter").href =
+    `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+
+  // LinkedIn
+  document.getElementById("share-linkedin").href =
+    `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+
+  // Copiar Link
+  document.getElementById("share-copy").addEventListener("click", function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      this.textContent = "✅ Copiado!";
+      setTimeout(() => this.textContent = "📋 Copiar Link", 2000);
+    });
+  });
+})();
+</script>
+
+<style>
+.share-buttons a {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+.share-buttons a:hover {
+  opacity: 0.85;
+}
+
+.btn-copy     { background: #6b7280; }  /* cinza */
+.btn-email    { background: #ea4335; }  /* Gmail vermelho */
+.btn-whatsapp { background: #25d366; }
+.btn-facebook { background: #1877f2; }
+.btn-twitter  { background: #1da1f2; }
+.btn-linkedin { background: #0077b5; }
+</style>

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Passivos | Como Gastar Menos - Livre Sou Mais Eu</title>
-  <meta name="description" content="Descubra como identificar e reduzir passivos financeiros. Segundo pilar da liberdade financeira com dicas práticas de economia." />
+  <meta name="description"
+    content="Descubra como identificar e reduzir passivos financeiros. Segundo pilar da liberdade financeira com dicas práticas de economia." />
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
   <main class="top-page">
     <div class="img-placeholder">
-      <img src="../imgs/passivos_gastar_menos.png" alt="Passivos - Como Gastar Menos" height="450px">
+      <img src="../imgs/2o_pilar.png" alt="Passivos - Como Gastar Menos">
     </div>
 
     <h1>2º Pilar da Liberdade</h1>
@@ -60,23 +63,25 @@
       <h3 style="font-size: 23px;">Soluções Práticas</h3>
       <ul>
         <li><strong>Reduzir:</strong> trocar ou renegociar despesas. Existem fornecedores mais baratos? Promoções?</li>
-        <li><strong>Cortar:</strong> eliminar gastos desnecessários. Preciso mesmo de tantos streamings ou parcelas?</li>
-        <li><strong>Otimizar:</strong> tornar custos mais eficientes. Exemplo: dividir carona, levar comida de casa.</li>
+        <li><strong>Cortar:</strong> eliminar gastos desnecessários. Preciso mesmo de tantos streamings ou parcelas?
+        </li>
+        <li><strong>Otimizar:</strong> tornar custos mais eficientes. Exemplo: dividir carona, levar comida de casa.
+        </li>
         <li><strong>Planejar:</strong> organizar e antecipar gastos futuros de forma controlada.</li>
       </ul>
 
       <p>
-        Quem agradece por economizar mais?  
+        Quem agradece por economizar mais?
         <strong>Suas economias e o seu "eu" do futuro.</strong>
       </p>
 
       <blockquote>
-        Você não consegue visitar seu "eu do futuro".  
+        Você não consegue visitar seu "eu do futuro".
         Mas ele vai te agradecer por trocar um gasto de hoje pela liberdade financeira de amanhã.
       </blockquote>
 
       <div class="img-placeholder">
-        <img src="../imgs/gastar_menos.png" alt="Economizar e Reduzir Passivos" height="390px">
+        <img src="../imgs/passivos.png" alt="Passivos" height="390px">
       </div>
     </section>
 
@@ -87,27 +92,24 @@
     </div>
 
     <!-- Compartilhamento -->
-    <div class="share-section">
-      <h3>Compartilhe</h3>
-      <div class="share-buttons">
-        <a href="https://api.whatsapp.com/send?text=Passivos%20-%20Como%20Gastar%20Menos%20-%20https://livresou.com.br/paginas/passivos.html"
-          target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://livresou.com.br/paginas/passivos.html"
-          target="_blank">Facebook</a>
-        <a href="https://twitter.com/intent/tweet?url=https://livresou.com.br/paginas/passivos.html&text=Passivos%20-%20Como%20Gastar%20Menos"
-          target="_blank">Twitter</a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://livresou.com.br/paginas/passivos.html"
-          target="_blank">LinkedIn</a>
-      </div>
-    </div>
+    <div id="compartilhamentos-container"></div>
+
+    <script>
+      fetch("util/compartilhamentos.html")  // ajuste o caminho conforme sua pasta
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById("compartilhamentos-container").innerHTML = html;
+        })
+        .catch(err => console.error("Erro ao carregar compartilhamentos.html:", err));
+    </script>
 
     <!-- Disqus -->
     <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
     <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
-        this.page.url = window.location.href;  
-        this.page.identifier = "passivos"; 
+        this.page.url = window.location.href;
+        this.page.identifier = "passivos";
       };
 
       (function () {
@@ -117,9 +119,10 @@
         (d.head || d.body).appendChild(s);
       })();
     </script>
-    <noscript>Por favor, ative o JavaScript para visualizar 
+    <noscript>Por favor, ative o JavaScript para visualizar
       <a href="https://disqus.com/?ref_noscript">os comentários powered by Disqus.</a>
     </noscript>
   </main>
 </body>
+
 </html>
