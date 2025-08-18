@@ -10,6 +10,19 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
+<footer class="site-footer">
+    <p>Copyright © <span id="year"></span> LivreSou - Gabriel Cossare Bragion |
+        <a href="quem-somos.html">Quem Somos</a> |
+        <a href="disclaimer.html">Disclaimer</a> |
+        <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
+    </p>
+</footer>
+
+<script>
+    // Atualiza o ano automaticamente
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 <body>
   <main class="top-page">
     <div class="img-placeholder">
@@ -129,15 +142,11 @@
     </div>
 
     <!-- Compartilhamento -->
-    <div id="compartilhamentos-container"></div>
-
+    <div id="compartilhe-container"></div>
     <script>
-      fetch("util/compartilhamentos.html")  // ajuste o caminho conforme sua pasta
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById("compartilhamentos-container").innerHTML = html;
-        })
-        .catch(err => console.error("Erro ao carregar compartilhamentos.html:", err));
+      fetch("../includes/compartilhamentos.html")
+        .then(r => r.text())
+        .then(html => { document.getElementById("compartilhe-container").innerHTML = html; });
     </script>
 
     <!-- Disqus -->

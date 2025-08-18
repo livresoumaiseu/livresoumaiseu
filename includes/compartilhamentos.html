@@ -1,0 +1,110 @@
+<div class="share-section sharekit" role="region" aria-label="Compartilhe">
+  <h3>Compartilhe</h3>
+  <div class="sharekit-buttons">
+    <a href="#" id="sk-copy" class="sharekit-btn btn-copy">📋 Copiar link</a>
+    <a href="#" id="sk-email" class="sharekit-btn btn-email" target="_blank" rel="noopener noreferrer">✉️ E-mail</a>
+    <a href="#" id="sk-whatsapp" class="sharekit-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="#" id="sk-facebook" class="sharekit-btn btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <a href="#" id="sk-twitter" class="sharekit-btn btn-twitter" target="_blank" rel="noopener noreferrer">Twitter</a>
+    <a href="#" id="sk-linkedin" class="sharekit-btn btn-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="#" id="sk-native" class="sharekit-btn btn-native" hidden>📤 Compartilhar…</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  const rawUrl = window.location.href;
+  const rawTitle = document.title || 'Veja isto';
+  const pageUrl = encodeURIComponent(rawUrl);
+  const pageTitle = encodeURIComponent(rawTitle);
+
+  // E-mail
+  document.getElementById('sk-email').href =
+    `mailto:?subject=${pageTitle}&body=${pageTitle}%0A${pageUrl}`;
+
+  // WhatsApp (abre app no mobile; Web no desktop)
+  document.getElementById('sk-whatsapp').href =
+    `https://wa.me/?text=${pageTitle}%20-%20${pageUrl}`;
+
+  // Facebook
+  document.getElementById('sk-facebook').href =
+    `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+
+  // Twitter/X
+  document.getElementById('sk-twitter').href =
+    `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
+
+  // LinkedIn
+  document.getElementById('sk-linkedin').href =
+    `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+
+  // Copiar link (com fallback para contextos inseguros)
+  document.getElementById('sk-copy').addEventListener('click', function(e) {
+    e.preventDefault();
+    const btn = this;
+    const done = () => {
+      btn.textContent = '✅ Copiado!';
+      setTimeout(() => btn.textContent = '📋 Copiar link', 2000);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(rawUrl).then(done);
+    } else {
+      const el = document.createElement('textarea');
+      el.value = rawUrl;
+      document.body.appendChild(el);
+      el.select();
+      try { document.execCommand('copy'); } catch (_) {}
+      document.body.removeChild(el);
+      done();
+    }
+  });
+
+  // Web Share API (menu nativo do celular)
+  const btnNative = document.getElementById('sk-native');
+  if (navigator.share) {
+    btnNative.hidden = false;
+    btnNative.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigator.share({ title: rawTitle, text: rawTitle, url: rawUrl });
+    });
+  }
+})();
+</script>
+
+<style>
+/* Container mantém sua margem via .share-section do seu CSS */
+.sharekit { text-align: center; }
+
+/* Grid de botões (sem conflitar com .share-buttons) */
+.sharekit-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Botões com classe exclusiva: .sharekit-btn */
+.sharekit .sharekit-btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  transition: transform .05s ease, opacity .2s ease;
+  will-change: transform;
+}
+.sharekit .sharekit-btn:hover { opacity: 0.9; }
+.sharekit .sharekit-btn:active { transform: translateY(1px); }
+
+/* Cores oficiais (não serão sobrescritas pelo seu .share-buttons a) */
+.sharekit .btn-copy     { background: #6b7280; } /* Cinza */
+.sharekit .btn-email    { background: #ea4335; } /* Gmail */
+.sharekit .btn-whatsapp { background: #25d366; }
+.sharekit .btn-facebook { background: #1877f2; }
+.sharekit .btn-twitter  { background: #1da1f2; }
+.sharekit .btn-linkedin { background: #0077b5; }
+.sharekit .btn-native   { background: #0ea5e9; } /* Azul-ciano */
+</style>
