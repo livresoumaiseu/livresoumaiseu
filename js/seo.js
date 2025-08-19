@@ -7,8 +7,8 @@
     author: "Gabriel Cossare Bragion",
     authorUrl: "https://bragioncorp.com/", // URL do autor
     twitter: "@livresoumaiseu",
-    logo: "/imgs/logo.png",               // caminho do logo
-    defaultImage: "/imgs/default.png",    // fallback se a página não tiver imagem
+    logo: "/imgs/favicon/logo.png",               // caminho do logo
+    defaultImage: "/imgs/favicon/default.png",    // fallback se a página não tiver imagem
     fbAppId: "1299627698215476"            // <-- substitua pelo ID real do Facebook App
   };
 
