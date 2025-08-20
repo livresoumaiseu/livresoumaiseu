@@ -199,6 +199,29 @@ p {
   display: block;
 }
 
+.accordion-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-header .arrow {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); /* seta para baixo */
+  transition: transform 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.accordion-item:not(.active) .accordion-header .arrow {
+  transform: rotate(-45deg); /* seta para direita (fechado) */
+}
+
+
 /* Blocos de conteúdo em páginas explicativas */
 .content-block {
   text-align: left;
@@ -236,14 +259,25 @@ p {
 .nav-buttons {
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
+  gap: 0.5rem;         /* espaço entre os botões */
+  margin: 2rem 0.5rem;
 }
 
 .nav-buttons .btn {
+  flex: 1;             /* cada botão ocupa o mesmo espaço */
+  text-align: center;  /* centraliza o texto */
   margin: 0;
-  padding: 0.6rem 1.2rem;
+  padding: 0.8rem 1.2rem;
   font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.nav-buttons .btn:nth-child(2) {
+  padding: 0.8rem 1.6rem; /* aumenta só o botão central */
+}
+
 
 /* Seção de compartilhamento */
 .share-section {

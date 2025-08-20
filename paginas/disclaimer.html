@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-89LTSFZN9G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-89LTSFZN9G');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PWG9QPJX');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Título e descrição básicos -->
+    <title>Disclaimer - Livre Sou Mais Eu</title>
+    <meta name="description"
+        content="Aviso de Disclaimer da Página." />
+
+    <!-- Opcional: data de publicação -->
+    <meta name="date" content="2025-08-20">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../imgs/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../imgs/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../imgs/favicon/apple-touch-icon.png">
+
+    <!-- Opcional: imagem principal -->
+    <meta property="og:image" content="https://livresou.com.br/imgs/disclaimer.png">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- SEO dinâmico -->
+    <script src="/js/seo.js" defer></script>
+</head>
+
+<footer class="site-footer">
+    <p>Copyright © <span id="year"></span> - LivreSou - Gabriel Cossare Bragion |
+        <a href="quem-somos.html">Quem Somos</a> |
+        <a href="disclaimer.html">Disclaimer</a> |
+        <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
+    </p>
+</footer>
+
+<script>
+    // Atualiza o ano automaticamente
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWG9QPJX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <main class="top-page">
+        <div class="img-placeholder">
+            <img src="../imgs/disclaimer.png" alt="Disclaimer">
+        </div>
+
+        <h1>DISCLAIMER</h1>
+        <p>Publicado em 20 de agosto de 2025 - Gabriel Cossare Bragion</p>
+
+        <section class="content-block">
+            <h2>Disclaimer da Página</h2>
+
+            <p>
+                Sou <strong>Gabriel Cossare Bragion</strong>, formado em Ciências da Computação.
+            </p>
+
+            <p>
+                Desde cedo, entrei no mundo das finanças para ser <strong>livre</strong>.
+            </p>
+
+            <p>
+                <strong>Não sou um profissional certificado CNPI</strong>, mas quero muito ajudar as pessoas a ter
+                liberdade financeira, assim como eu estou construindo a minha.
+            </p>
+
+            <p>
+                Lembre-se: apenas o profissional certificado CNPI é que pode recomendar ativos e investimentos.
+            </p>
+
+            <p>
+                Neste site, apenas organizei o tema <strong>Liberdade Financeira</strong>.
+            </p>
+
+            <p>
+                Tudo o que aprendi com várias fontes, decidi compartilhar com iniciantes.
+            </p>
+
+            <p>
+                Acredito que <strong>conhecimento sempre é o melhor investimento</strong>.
+            </p>
+
+            <p><em>
+                    Sucesso a você que está começando!
+                </em></p>
+        </section>
+
+        <!-- Navegação -->
+        <div class="nav-buttons">
+            <a href="menu.html" class="btn">⬅ Voltar ao Menu</a>
+        </div>
+
+        <!-- Compartilhamento -->
+        <div id="compartilhe-container"></div>
+
+        <script src="/js/sharekit.js"></script>
+        <script>
+            fetch("/includes/compartilhamentos.html")
+                .then(r => r.text())
+                .then(html => {
+                    const box = document.getElementById("compartilhe-container");
+                    box.innerHTML = html;
+                    initShareKit(box); // chamada direta
+                });
+        </script>
+
+        <!-- Disqus -->
+        <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
+        <div id="comentarios-container"></div>
+
+        <script src="/js/disqus.js"></script>
+        <script>
+            // Aqui você chama a função e passa o ID do container e o identificador único da página
+            initDisqus("comentarios-container", "disclaimer");
+        </script>
+
+    </main>
+</body>
+
+</html>
