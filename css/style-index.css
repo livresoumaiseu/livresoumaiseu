@@ -91,3 +91,22 @@ p {
 .site-footer a:hover {
     color: #2563eb;
 }
+
+/* Placeholder para imagens */
+.img-placeholder {
+  background: #1e293b;
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Todas as imagens dentro do content-block e placeholders */
+.content-block img,
+.img-placeholder img {
+  max-width: 100%;   /* nunca ultrapassa o tamanho do container */
+  height: 240px;      /* mantém a proporção original */
+  border-radius: 6px; /* opcional, arredonda um pouco */
+}
