@@ -77,7 +77,7 @@
     <!-- Compartilhamento -->
     <div id="compartilhe-container"></div>
 
-    <script src="/js/sharekit.js"></script>
+    <script src="/js/sharekit.js" defer></script>
     <script>
       fetch("/includes/compartilhamentos.html")
         .then(r => r.text())
@@ -87,17 +87,6 @@
           initShareKit(box); // chamada direta
         });
     </script>
-
-    <!-- Disqus -->
-    <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
-    <div id="comentarios-container"></div>
-
-    <script src="/js/disqus.js"></script>
-    <script>
-      // Aqui você chama a função e passa o ID do container e o identificador único da página
-      initDisqus("comentarios-container", "passivos");
-    </script>
-
   </main>
 </body>
 

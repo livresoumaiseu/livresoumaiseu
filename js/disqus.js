@@ -25,7 +25,7 @@ function initDisqus(containerId, identifier = null) {
   } else {
     // Carrega o script do Disqus
     const d = document, s = d.createElement("script");
-    s.src = "https://livresou-com-br.disqus.com/embed.js";
+    s.src = "https://livresou-1.disqus.com/embed.js";
     s.setAttribute("data-timestamp", +new Date());
     (d.head || d.body).appendChild(s);
   }

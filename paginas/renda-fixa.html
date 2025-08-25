@@ -55,19 +55,6 @@
   <link rel='dns-prefetch' href='//fundingchoicesmessages.google.com' />
 </head>
 
-<footer class="site-footer">
-  <p>Copyright © <span id="year"></span> - LivreSou - Gabriel Cossare Bragion |
-    <a href="quem-somos.html">Quem Somos</a> |
-    <a href="disclaimer.html">Disclaimer</a> |
-    <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
-  </p>
-</footer>
-
-<script>
-  // Atualiza o ano automaticamente
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWG9QPJX" height="0" width="0"
@@ -95,7 +82,7 @@
     <!-- Compartilhamento -->
     <div id="compartilhe-container"></div>
 
-    <script src="/js/sharekit.js"></script>
+    <script src="/js/sharekit.js" defer></script>
     <script>
       fetch("/includes/compartilhamentos.html")
         .then(r => r.text())
@@ -113,9 +100,23 @@
     <script src="/js/disqus.js"></script>
     <script>
       // Aqui você chama a função e passa o ID do container e o identificador único da página
-      initDisqus("comentarios-container", "passivos");
+      initDisqus("comentarios-container", "renda-fixa");
     </script>
 
+    <footer>
+      <div class="container footer">
+        <p>Copyright © <span id="year"></span> - Livresou.com.br - Todos os direitos reservados. <br>
+          <a href="paginas/quem-somos.html">Quem Somos</a> |
+          <a href="paginas/disclaimer.html">Disclaimer</a> |
+          <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Atualiza o ano automaticamente
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </main>
 </body>
 

@@ -53,7 +53,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
     <meta property="article:published_time" content="2025-08-21T00:00:00-03:00">
-    <meta property="article:modified_time" content="2025-08-21T00:00:00-03:00">
+    <meta property="article:modified_time" content="2025-08-25T10:50:00-03:00">
 
     <!-- ================= Twitter Cards ================= -->
     <meta name="twitter:card" content="summary_large_image">
@@ -91,7 +91,7 @@
       }
     },
     "datePublished": "2025-08-21T00:00:00-03:00",
-    "dateModified": "2025-08-21T00:00:00-03:00"
+    "dateModified": "2025-08-25T10:50:00-03:00"
   }
   </script>
 
@@ -110,19 +110,6 @@
     <link rel='dns-prefetch' href='//fundingchoicesmessages.google.com'>
 </head>
 
-<footer class="site-footer">
-    <p>Copyright © <span id="year"></span> - LivreSou - Gabriel Cossare Bragion |
-        <a href="quem-somos.html">Quem Somos</a> |
-        <a href="disclaimer.html">Disclaimer</a> |
-        <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
-    </p>
-</footer>
-
-<script>
-    // Atualiza o ano automaticamente
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWG9QPJX" height="0" width="0"
@@ -130,12 +117,19 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <main class="top-page">
+        <!-- Navegação -->
+        <div class="nav-buttons">
+            <a href="mentalidade-investidora-modulo-1.html" class="btn left">⬅ Capítulo Anterior</a>
+            <a href="../index.html" class="btn right">Início</a>
+            <a href="mentalidade-investidora-modulo-3.html" class="btn right">Próximo Capítulo ➡</a>
+        </div>
+
         <div class="img-placeholder">
             <img src="../imgs/mentalidade-investidora.png" alt="Imagem Mentalidade Investidora">
         </div>
 
         <h1>Mentalidade Investidora - Módulo 2</h1>
-        <p>Publicado em 21 de agosto de 2025 - Gabriel Cossare Bragion</p>
+        por <strong>Bie</strong> — 21 de agosto de 2025
 
         <section class="content-block">
             <h2>Mentalidade Investidora</h2>
@@ -192,41 +186,55 @@
                 <li>NÃO OBTENHA VANTAGENS DE LONGO PRAZO SENDO MAIS INTELIGENTE E, SIM, MENOS ESTÚPIDO.</li>
             </ul>
 
-            <p><a href="https://avenue.us/insights-avenue/10-ensinamentos-de-charles-munger/"
-                    target="_blank">10 ensinamentos de Charles Munger. Fonte: Avenue</a></p>
-            </section>
+            <p><a href="https://avenue.us/insights-avenue/10-ensinamentos-de-charles-munger/" target="_blank">10
+                    ensinamentos de Charles Munger. Fonte: Avenue</a></p>
+        </section>
 
-            <!-- Navegação -->
-            <div class="nav-buttons">
-                <a href="mentalidade-investidora-modulo-1.html" class="btn left">⬅ Capítulo Anterior</a>
-                <a href="../index.html" class="btn right">Início</a>
-                <a href="mentalidade-investidora-modulo-3.html" class="btn right">Próximo Capítulo ➡</a>
+        <!-- Navegação -->
+        <div class="nav-buttons">
+            <a href="mentalidade-investidora-modulo-1.html" class="btn left">⬅ Capítulo Anterior</a>
+            <a href="../index.html" class="btn right">Início</a>
+            <a href="mentalidade-investidora-modulo-3.html" class="btn right">Próximo Capítulo ➡</a>
+        </div>
+
+        <!-- Compartilhamento -->
+        <div id="compartilhe-container"></div>
+
+        <script src="/js/sharekit.js" defer></script>
+        <script>
+            fetch("/includes/compartilhamentos.html")
+                .then(r => r.text())
+                .then(html => {
+                    const box = document.getElementById("compartilhe-container");
+                    box.innerHTML = html;
+                    initShareKit(box); // chamada direta
+                });
+        </script>
+
+        <!-- Disqus -->
+        <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
+        <div id="comentarios-container"></div>
+
+        <script src="/js/disqus.js"></script>
+        <script>
+            // Aqui você chama a função e passa o ID do container e o identificador único da página
+            initDisqus("comentarios-container", "mentalidade-investidora-modulo-2");
+        </script>
+
+        <footer>
+            <div class="container footer">
+                <p>Copyright © <span id="year"></span> - Livresou.com.br - Todos os direitos reservados. <br>
+                    <a href="paginas/quem-somos.html">Quem Somos</a> |
+                    <a href="paginas/disclaimer.html">Disclaimer</a> |
+                    <a target="_blank" href="https://bragioncorp.com/">Site Principal</a>
+                </p>
             </div>
+        </footer>
 
-            <!-- Compartilhamento -->
-            <div id="compartilhe-container"></div>
-
-            <script src="/js/sharekit.js"></script>
-            <script>
-                fetch("/includes/compartilhamentos.html")
-                    .then(r => r.text())
-                    .then(html => {
-                        const box = document.getElementById("compartilhe-container");
-                        box.innerHTML = html;
-                        initShareKit(box); // chamada direta
-                    });
-            </script>
-
-            <!-- Disqus -->
-            <p style="text-align: left; font-size: 22px; font-weight: bolder;">DEIXE UM COMENTÁRIO</p>
-            <div id="comentarios-container"></div>
-
-            <script src="/js/disqus.js"></script>
-            <script>
-                // Aqui você chama a função e passa o ID do container e o identificador único da página
-                initDisqus("comentarios-container", "mentalidade-investidora-modulo-2");
-            </script>
-
+        <script>
+            // Atualiza o ano automaticamente
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
     </main>
 </body>
 
